@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="\CSS\style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <section id="header">
+      <div>
+        <ul id="navbar">
+          <li><a class="active" href="/api/index">Home</a></li>
+          <li><a href="/api/shop">Shop</a></li>
+          <li><a href="/api/blog">Blog</a></li>
+          <li><a href="/api/about">About</a></li>
+          <li><a href="/api/contact">Contract</a></li>
+          <li id="lg-bag">
+            <a href="/api/cart"
+              ><i class="fa-sharp-duotone fa-solid fa-bag-shopping"></i
+            ></a>
+          </li>
+          <li><a href="/api/profile">Profile</a></li>
+          <a href="#" id="close"><i class="far fa-times"></i></a>
+        </ul>
+      </div>
+
+      <div id="mobile">
+        <a href="/api/cart"
+          ><i class="fa-sharp-duotone fa-solid fa-bag-shopping"></i
+        ></a>
+        <i id="bar" class="fas fa-outdent"></i>
+      </div>
+    </section>
+
+    <section id="hero">
+      <h4>Trade-in-offer</h4>
+      <h2>Supper value deals</h2>
+      <h1>On all products</h1>
+      <p>save more with coupons & up to 70% off!</p>
+      <button class="normal" onclick="window.location.href='/api/shop'">
+        Shop Now
+      </button>
+    </section>
+
+    <section id="feature" class="section-p1">
+      <div class="fe-box">
+        <img
+          src="/images/vecteezy_delivery-time-shipping-transport-truck-glyph-icon-in_12914086.jpg"
+          height="70px"
+          width="70px"
+        />
+        <h6>Free Shipping</h6>
+      </div>
+      <div class="fe-box">
+        <img
+          src="/images/online-shopping-1929002_1280.png"
+          height="70px"
+          width="70px"
+        />
+        <h6>Online Order</h6>
+      </div>
+      <div class="fe-box">
+        <img src="/images/money-576443_1280.png" height="70px" width="70px" />
+        <h6>Save Money</h6>
+      </div>
+      <div class="fe-box">
+        <img
+          src="/images/special-offer-606691_1280.png"
+          height="70px"
+          width="70px"
+        />
+        <h6>Promotions</h6>
+      </div>
+      <div class="fe-box">
+        <img src="/images/man-1459246_1280.png" height="70px" width="70px" />
+        <h6>Happy Sell</h6>
+      </div>
+      <div class="fe-box">
+        <img
+          src="/images/jumping-3095150_1280.png"
+          height="70px"
+          width="70px"
+        />
+        <h6>F24/7 support</h6>
+      </div>
+    </section>
+
+    <section id="Product1" class="section-p1">
+      <h2>Features Product</h2>
+      <p>Summer Collection New Modern Design</p>
+      <div class="pro-container">
+        <% featuredProducts.forEach(product => { %>
+        <div class="pro">
+          <img src="<%= product.image %>" />
+          <div class="des">
+            <span><%= product.brand %></span>
+            <h5><%= product.name %></h5>
+            <div class="star">
+              <% for (let i = 0; i < product.rating; i++) { %>
+              <i class="fas fa-star"></i>
+              <% } %>
+            </div>
+            <h4><%= product.price %></h4>
+          </div>
+          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+        <% }) %>
+      </div>
+    </section>
+
+    <section id="banner" class="section-m1">
+      <h4>Repair Services</h4>
+      <h2>Up to <span>70% off </span> All t-shirts and Accessories</h2>
+      <button class="normal">Explore More</button>
+    </section>
+
+    <section id="Product1" class="section-p1">
+      <h2>New Arrivals</h2>
+      <p>Summer Collection New Modern Design</p>
+      <div class="pro-container">
+        <% newArrival.forEach(product => { %>
+        <div class="pro">
+          <img src="<%= product.image %>" alt="<%= product.title %>" />
+          <div class="des">
+            <span><%= product.brand %></span>
+            <h5><%= product.name %></h5>
+            <div class="star">
+              <% for (let i = 0; i < product.rating; i++) { %>
+              <i class="fas fa-star"></i>
+              <% } %>
+            </div>
+            <h4>$<%= product.price %></h4>
+          </div>
+          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+        <% }); %>
+      </div>
+    </section>
+
+    <section id="sm-banner" class="section-p1">
+      <div class="banner-box">
+        <h4>crazy deals</h4>
+        <span>The best classic dress in on sale at crazy</span>
+        <button class="white">Learn More</button>
+      </div>
+
+      <div class="banner-box2">
+        <h4>crazy deals</h4>
+        <h2>Upcoming season</h2>
+        <span>The best classic dress in on sale at crazy</span>
+        <button class="white">Collection</button>
+      </div>
+    </section>
+
+    <section id="banner3">
+      <div class="banner-box">
+        <h2>SEASONAL SALE</h2>
+        <h3>Winter collection -50% OFF</h3>
+      </div>
+
+      <div class="banner-box1">
+        <h2>NEW FOOTWEAR COLLECTION</h2>
+        <h3>Spring / Summer 2024</h3>
+      </div>
+
+      <div class="banner-box2">
+        <h2>T-SHIRTS</h2>
+        <h3>New Trendy Prints</h3>
+      </div>
+    </section>
+
+    <section id="newsletter" class="section-p1 section-m1">
+      <div class="newstext">
+        <h4>Sign Up For Newsletters</h4>
+        <p>
+          GEt E-mail updates about latest shop and <span>special offers</span>
+        </p>
+      </div>
+      <div class="form">
+        <input type="text" placeholder="Your email address" />
+        <button class="normal">Sign Up</button>
+      </div>
+    </section>
+
+    <footer class="section-p1">
+      <div class="col">
+        <img class="logo" src="Akta image dibo" alt="" />
+        <h4>Contact</h4>
+        <p>
+          <strong>Address:</strong> 562 wellington Road,Street 32, San Francisco
+        </p>
+        <p><strong>Phone:</strong> +01 2222 365 /(+91) 01 2345 6789</p>
+        <p><strong>Hours:</strong>10:00 - 18:00, Mon -Sat</p>
+        <div class="follow">
+          <h4>Follow us</h4>
+          <div class="icon">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-pinterest-p"></i>
+            <i class="fab fa-youtube"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">About Us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms & conditions</a>
+        <a href="#">Contact Us</a>
+      </div>
+
+      <div class="col">
+        <h4>Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">My wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+      </div>
+      <div class="col install">
+        <h4>Install App</h4>
+        <p>From App Store or Google play</p>
+        <div class="row">
+          <img src="/images/img/pay/app.jpg" alt="" />
+          <img src="img/pay/play.jpg" alt="" />
+        </div>
+        <p>Secured Payment Gateways</p>
+        <img src="/images/img/pay/pay.png" alt="" />
+      </div>
+    </footer>
+
+    <section1>
+      <div class="copyright">
+        <p>@ 2023 ,Tech2 etc - HTML CSS Ecommerce Template</p>
+      </div>
+    </section1>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>

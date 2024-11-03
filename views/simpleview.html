@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <button onclick="sendData()">buton</button>
+
+    <script>
+        async function sendData() {
+            data = {
+                name:"lutfor",
+                dept:"ICT",
+                batch:"18th"
+
+            }
+    fetch("/api/data", {
+     method: "POST",  // Use "POST" in uppercase
+    headers: {
+        "Content-Type": "application/json"  // Correct the case for "Content-Type"
+    },
+    body: JSON.stringify({data:data})
+})
+.then(res => {
+    if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+    }
+    return res.json();  // Ensure res.json() is only called when response is okay
+})
+.then(data => {
+    console.log(data.msg);  // Access the response data correctly
+})
+.catch(error => {
+    console.error('There was an error:', error);  // Error handling
+});
+
+        }
+
+
+    </script>
+</body>
+</html>

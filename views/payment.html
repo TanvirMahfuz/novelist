@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page with Bikash Payment</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.product {
+    background-color: #fff;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.payment-btn {
+    background-color: #ff6f00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.payment-btn:hover {
+    background-color: #ff9800;
+}
+
+#payment-result {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Products</h1>
+        <div class="product" id="product1">
+            <h2>Product 1</h2>
+            <p>Price: $10</p>
+            <button class="payment-btn" onclick="payWithBikash('Product 1', 10)">Pay with Bikash</button>
+        </div>
+        
+        <div class="product" id="product2">
+            <h2>Product 2</h2>
+            <p>Price: $20</p>
+            <button class="payment-btn" onclick="payWithBikash('Product 2', 20)">Pay with Bikash</button>
+        </div>
+        
+        <div class="product" id="product3">
+            <h2>Product 3</h2>
+            <p>Price: $30</p>
+            <button class="payment-btn" onclick="payWithBikash('Product 3', 30)">Pay with Bikash</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function payWithBikash(productName, price) {
+            alert(`Processing Bikash payment for ${productName} with amount $${price}`);
+            
+            setTimeout(() => {
+                alert(`Payment successful for ${productName}`);
+            },  2000);
+        }
+    </script>
+</body>
+</html>
+ 
