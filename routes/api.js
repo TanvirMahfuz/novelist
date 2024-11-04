@@ -30,7 +30,7 @@ router.get("/cart", cartShow);
 router.get("/contact", contactShow);
 router.get("/checkout", checkoutShow);
 router.post("/checkout", submitPayment);
-router.post("/profile", getUserProfile);
+router.get("/profile", getUserProfile);
 //is an Express.js route handler that serves an HTML file when a GET request is made to the /data URL endpoint. Let’s break this down step by step:
 router.get("/data", (req, res) => {
   console.log("reached");
