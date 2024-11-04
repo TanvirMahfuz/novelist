@@ -49,7 +49,7 @@ router.get("/register", async (req, res) => {
 router.post("/register", register);
 
 router.get("/login", async (req, res) => {
-  res.render("login");
+  res.render("loginK");
 });
 router.post("/login", login);
 
