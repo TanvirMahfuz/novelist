@@ -18,8 +18,7 @@ const userSchema = new mongoose.Schema(
     },
     cart: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Products",
+        productId: {type: mongoose.Schema.Types.ObjectId, ref: "Products"},
         quantity: {
           type: Number,
           default: 1,
@@ -42,6 +41,9 @@ userSchema.pre("save", async function (next) {
 userSchema.methods.comparePassword = async function (password) {
   const user = this;
   return bcrypt.compare(password, user.password);
+};
+userSchema.methods.addToCart = async function (productId, quantity) {
+  this.cart.push({productId, quantity});
 };
 userSchema.methods.generateAuthToken = function () {
   const user = this;

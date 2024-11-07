@@ -87,8 +87,10 @@
           <option>Small</option>
           <option>Large</option>
         </select>
-        <input type="number" value="1" />
-        <button class="normal" onclick="">Add To Cart</button>
+        <input type="number" value="1" id="unit" />
+        <button class="normal" onclick="addToCart('<%=product._id%>')">
+          Add To Cart
+        </button>
         <h4>Product Details</h4>
         <span
           >The Gildan ultra cotton T-Shirt is made from a substantial 6.0 oz per
@@ -212,6 +214,26 @@
       smallimg[3].onclick = function () {
         mainImg.src = smallimg[3].src;
       };
+      async function addToCart(productId) {
+        const quantity = document.getElementById("unit").value;
+        console.log(productId, quantity);
+        const res = await fetch("/api/toCart", {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            productId,
+            quantity,
+          }),
+        });
+        const data = await res.json();
+        if (data.msg === "ok") {
+          alert("Product added to cart");
+        } else {
+          alert("Product already in cart");
+        }
+      }
     </script>
 
     <script src="script.js"></script>

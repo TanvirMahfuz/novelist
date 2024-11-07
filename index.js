@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const router = require("./routes/api.js");
+const cookieParser = require("cookie-parser");
 app.use((req, res, next) => {
   console.log(req.url);
   next();
@@ -10,6 +11,7 @@ app.use((req, res, next) => {
 console.log(path.join(__dirname, "public"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
+app.use(cookieParser());
 app.use("/api", router);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname + "/views"));
