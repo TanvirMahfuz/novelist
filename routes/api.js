@@ -31,7 +31,7 @@ router.post("/toCart", isLoggedIn, addToCart);
 router.get("/contact", isLoggedIn, contactShow);
 router.get("/checkout", isLoggedIn, checkoutShow);
 router.post("/checkout", isLoggedIn, submitPayment);
-router.post("/profile", isLoggedIn, getUserProfile);
+router.get("/profile", isLoggedIn, getUserProfile);
 
 router.get("/data", isLoggedIn, (req, res) => {
   console.log("reached");

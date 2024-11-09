@@ -6,7 +6,8 @@ const {
 } = require("../service/user.service.js");
 const jwt = require("jsonwebtoken");
 const getUserProfile = async (req, res) => {
-  const id = req.user.id;
+  console.log(req.user);
+  const id = req.user._id;
   const user = await getUserById(id);
   if (!user) {
     return res.status(404).json({msg: "user not found"});

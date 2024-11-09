@@ -8,15 +8,20 @@ const isLoggedIn = async (req, res, next) => {
   try {
     const decoded = await jwt.verify(token, "the secret lies in the open");
     console.log(decoded);
-    const user = await User.findOne(decoded._id);
+    const user = await User.findById(decoded.id);
     if (!user) {
       return res.status(401).json({msg: "Unauthorized"});
     }
-    req.user = decoded;
-    console.log(req.user);
+    req.user = user;
     next();
   } catch (error) {
-    return res.status(401).json({msg: "Unauthorized"});
+    if (
+      error.name === "TokenExpiredError" ||
+      error.name === "JsonWebTokenError"
+    ) {
+      return res.redirect("/api/login");
+    }
+    throw error;
   }
 };
 module.exports = {isLoggedIn};
